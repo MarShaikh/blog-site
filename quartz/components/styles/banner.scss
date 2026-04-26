@@ -1,0 +1,16 @@
+.ascii-banner {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  line-height: 1;
+  // ~170 chars wide; scale to fit the content column without horizontal scroll.
+  font-size: clamp(3px, 0.55vw, 8px);
+  white-space: pre;
+  margin: 0 auto;
+  padding: 0.5em 0;
+  overflow: hidden;
+  background: transparent;
+  text-align: center;
+
+  :root[saved-theme="light"] & {
+    filter: invert(1) hue-rotate(180deg);
+  }
+}
