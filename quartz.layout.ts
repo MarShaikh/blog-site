@@ -25,16 +25,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.ContentMeta(),
     Component.TagList(),
   ],
-  afterBody: [
-    Component.ConditionalRender({
-      component: Component.RecentNotes({
-        title: "Recent writing",
-        limit: 5,
-        showTags: false,
-      }),
-      condition: (page) => page.fileData.slug === "index",
-    }),
-  ],
+  afterBody: [],
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
@@ -48,6 +39,13 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
+    Component.DesktopOnly(
+      Component.RecentNotes({
+        title: "Recent writing",
+        limit: 5,
+        showTags: false,
+      }),
+    ),
   ],
   right: [
     Component.Graph(),
